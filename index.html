@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="ad.orientation" content="portrait">
     <meta name="ad.size" content="width=320,height=480">
-    <title>Dragon PlayableAD/</title>
+    <title>33rd Random Defense/</title>
 
 
     <style>
         /*  #gameDiv {
             overflow: hidden !important;
         } */
-        
+
         body {
             padding: 0;
             margin: 0;
@@ -22,13 +22,13 @@
             background-image: linear-gradient(-45deg, #C02303, #2E91B8);
             font-family: 'font2';
         }
-        
+
         html,
         body {
             height: 100%;
             overflow: hidden !important;
         }
-        
+
         #gameDiv {
             position: absolute !important;
             top: 0;
@@ -37,11 +37,11 @@
             right: 0;
             overflow: hidden !important;
         }
-        
+
         #btnCTA {
-            width: 100%;
-            height: 40%;
-            z-index: -1;
+            width: 0;
+            height: 0;
+            z-index: 1000;
             background: transparent;
             bottom: 0;
             margin: auto;
@@ -65,22 +65,64 @@
 
     <div id="gameDiv"></div>
 
-    <!-- <button id="btnCTA" onclick="fnctabtn()"></button> -->
+    <button id="btnCTA" onclick="fnctabtn()"></button>
 
-    <!-- <script>
+    <script>
         function fnctabtn() {
             console.log("TTTTT")
             var userAgent = navigator.userAgent || navigator.vendor;
-            var url = "https://apps.apple.com/us/app/dragonvale/id440045374";
+            var url = "https://apps.apple.com/in/app/33rd-random-defense/id1511972977";
             var android =
-                "https://play.google.com/store/apps/details?id=com.backflipstudios.android.dragonvale&hl=en&gl=US";
+                "https://play.google.com/store/apps/details?id=com.wondersquad.weapon&hl=en_IN&gl=US";
             if (/android/i.test(userAgent)) {
                 url = android;
             }
-            ExitApi.exit();
-            window.open(url);
+            //ExitApi.exit();
+            // window.open(url);
+            mraid.open(android);
         }
-    </script> -->
+
+
+        window.addEventListener("load", function (event) {
+            // Wait for the SDK to become ready: 
+            if (mraid.getState() === 'loading') {
+                // If the SDK is still loading, add a listener for the 'ready' event:
+                mraid.addEventListener('ready', onSdkReady);
+            } else {
+                // Otherwise, if the SDK is ready, execute your function:
+                onSdkReady();
+            }
+
+            // Implement a function that shows the ad when it first renders:
+            function onSdkReady() {
+                // The viewableChange event fires if the ad container's viewability status changes.
+                // Add a listener for the viewabilityChange event, to handle pausing and resuming: 
+                mraid.addEventListener('viewableChange', viewableChangeHandler);
+                // The isViewable method returns whether the ad container is viewable on the screen.
+                if (mraid.isViewable()) {
+                    // If the ad container is visible, play the ad:
+                    showMyAd();
+                }
+            }
+
+            // Implement a function for executing the ad:
+            function showMyAd() {
+                // Insert code for showing your playable ad.
+                var el = document.body;
+                el.style.display = 'block';
+            }
+
+            // Implement a function that handles pausing and resuming the ad based on visibility:
+            function viewableChangeHandler(viewable) {
+                if (viewable) {
+                    // If the ad is viewable, show the ad:
+                    showMyAd();
+                } else {
+                    // If not, pause the ad.
+                }
+            }
+        });
+    </script>
 <script type="text/javascript" src="bundle.min.js"></script></body>
 
 
