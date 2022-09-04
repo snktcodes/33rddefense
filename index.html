@@ -14,6 +14,10 @@
         /*  #gameDiv {
             overflow: hidden !important;
         } */
+        @font-face {
+            font-family: 'font2';
+            src: url('MaplestoryOTFBold.otf');
+        }
 
         body {
             padding: 0;
@@ -48,6 +52,31 @@
             position: absolute;
             border: none;
         }
+
+
+        .checkfont {
+            display: none;
+            visibility: hidden;
+            color: #000;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            z-index: -1;
+            width: 0;
+            height: 0;
+        }
+
+        .checkfont p {
+            opacity: 0;
+        }
+
+        .checkfont p:nth-child(1) {
+            font-family: 'font2';
+        }
+
+        .checkfont p:nth-child(2) {
+            font-family: 'font2';
+        }
     </style>
 
     <!-- <script type="text/javascript" src="https://tpc.googlesyndication.com/pagead/gadgets/html5/api/exitapi.js">
@@ -55,7 +84,10 @@
 </head>
 
 <body>
-
+    <div class="checkfont" id="checkfont">
+        <p id='setcheckfont'>0</p>
+        <p id='setcheckfont'>0</p>
+    </div>
     <div class="containerr">
         <div class="progress">
             <div class="bar shadow overlap"></div>
