@@ -101,16 +101,9 @@
 
     <script>
         function fnctabtn() {
-            console.log("TTTTT")
-            var userAgent = navigator.userAgent || navigator.vendor;
-            var url = "https://apps.apple.com/in/app/33rd-random-defense/id1511972977";
+
             var android =
                 "https://play.google.com/store/apps/details?id=com.wondersquad.weapon&hl=en_IN&gl=US";
-            if (/android/i.test(userAgent)) {
-                url = android;
-            }
-            //ExitApi.exit();
-            // window.open(url);
             mraid.open(android);
         }
 
